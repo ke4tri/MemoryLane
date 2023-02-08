@@ -13,7 +13,9 @@ from art import *
 #list
 health = [15]
 progress = []
-pockets = {}
+
+location_status = None
+maps = {'name':'Map', 'quantity':1}
 food = {'name':'Apples', 'quantity':1, 'price':.10}
 weapons = {'name':'Knife','condition':'dull','quantity':1,'price':1.00 }
 
@@ -43,7 +45,6 @@ def start_game():
     print("You awaken and find yourself benieth an old oak tree.")
     time.sleep(4) 
     print(ascii.tree)
-    
     time.sleep(5)
     print("Dry blood seems to be on your right arm and on the right side of your face")
     time.sleep(4)  
