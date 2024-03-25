@@ -9,6 +9,16 @@ import ascii
 from PIL import Image
 from art import *
 
+#list
+health = [15]
+progress = []
+pockets = {}
+food = {'name':'Apples', 'quantity':1, 'price':.10}
+weapons = {'name':'Knife','condition':'dull','quantity':1,'price':1.00 }
+
+#dictonary/object 
+inventory = [pockets,food,weapons]
+
 
 
 def display_ascii(text):
@@ -23,36 +33,32 @@ def convert_image_to_ascii(image_path):
 def start_game():
     display_ascii('Memory Lane!')
     print("Created By : Wayne Collier and Monica Weiss-Sharp")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print(" ")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4) 
     print("It begins...")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print("You awaken and find yourself benieth an old oak tree.")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4) 
     print(ascii.tree)
-    
-    # if __name__ == "__main__":
-    #     image_path = "/home/wayne/Coding/Python/MemLane/Images/tree.jpeg"
-    #     convert_image_to_ascii(image_path)
     
     time.sleep(5)
     print("Dry blood seems to be on your right arm and on the right side of your face")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print("You look around...")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print(".................")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print("It seems to be mid morning")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print(".................")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print("But")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print(".................")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
     print("You're not sure who you are.")
-    time.sleep(4)  # Add a delay for dramatic effect
+    time.sleep(4)  
 
 def enter_lane():
     print("\nYou decide to walk down the lane.")
@@ -62,8 +68,6 @@ def enter_lane():
 def encounter_enemy():
     print("\nSuddenly, you encounter a fierce enemy blocking your path!")
     print("You must defeat the enemy to continue your journey.")
-
-    # Add code here for combat mechanics (e.g., player attacks, enemy attacks, health points, etc.)
 
 def reach_goal():
     print("\nCongratulations! You have successfully navigated through Memory Lane.")
@@ -75,11 +79,6 @@ def check_for_escape():
 
 def main():
     start_game()
-    
-    # while True:
-    #     if check_for_escape():
-    #         print("You pressed Escape. Exiting the game.")
-    #         break
 
     #enter_lane()
     #encounter_enemy()  # You can expand this to include other encounters or challenges
@@ -89,6 +88,6 @@ if __name__ == "__main__":
     main()
 
 
-#Earth!Moon@Sun#Stars$
+
 
 
