@@ -1,5 +1,6 @@
 #pip install pyfiglet
 #pip install art
+#sudo chown -R testuser:testuser /var/www/test/public_html
 
 import time
 import pyfiglet
@@ -75,18 +76,26 @@ def reach_goal():
     print("You reach the end of the lane and discover a hidden treasure.")
     print("Thanks for playing!")
 
+def commands_list():
+    print('*inventory')
+    print('*commands')
+    print('*quit')
+
 def check_for_escape():
     return keyboard.is_pressed('esc')
 
 def main():
     start_game()
     while True:
+
             user_input = input("\nWhat would you like to do? Enter a command: ")
 
             if user_input.lower() == "*inventory":
                 print("\nInventory List:")
                 for item in inventory:
                     print(item)
+            elif user_input.lower() == "*commands":
+                print(commands_list)
             elif user_input.lower() == "quit":
                 print("Exiting the game.")
                 break
