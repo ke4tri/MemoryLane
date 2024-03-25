@@ -10,6 +10,7 @@ import ascii
 from PIL import Image
 from art import *
 
+######### Lists and inventory ###########
 #list
 health = [15]
 progress = []
@@ -17,12 +18,15 @@ progress = []
 location_status = None
 maps = {'name':'Map', 'quantity':1}
 food = {'name':'Apples', 'quantity':1, 'price':.10}
+
+#weapons needs to be list?
 weapons = {'name':'Knife','condition':'dull','quantity':1,'price':1.00 }
 
 #dictonary/object 
-inventory = [pockets,food,weapons]
+inventory = [maps,food,weapons]
 
 
+########## Command Functions ###########
 
 def display_ascii(text):
     ascii_art = pyfiglet.figlet_format(text)
@@ -34,12 +38,14 @@ def convert_image_to_ascii(image_path):
     ascii_art = text2art(str(img), font='block', chr_ignore=True)
     print(ascii_art)
 
+def gameHelp():
+    print('You asked for help so here it is...')
+
 def start_game():
     display_ascii('Memory Lane!')
-    print("Created By : Wayne Collier and Monica Weiss-Sharp")
-    time.sleep(4)  
+    print("Created By : Wayne Collier and Monica Weiss-Sharp")  
     print(" ")
-    time.sleep(4) 
+    time.sleep(2) 
     print("It begins...")
     time.sleep(4)  
     print("You awaken and find yourself benieth an old oak tree.")
@@ -82,21 +88,31 @@ def commands_list():
     print('*commands')
     print('*quit')
 
+def actions():
+    print('read origin map')
+    print('read current location map')
+
+
 def check_for_escape():
     return keyboard.is_pressed('esc')
 
 def main():
-    start_game()
+    # each of these functions can be the "levels" of the game the player is 
+    # currently on 
+    
+    #start_game()
     while True:
 
-            user_input = input("\nWhat would you like to do? Enter a command: ")
+            user_input = input("\nWhat would you like to do? Enter a command or h for help: ")
 
             if user_input.lower() == "*inventory":
                 print("\nInventory List:")
                 for item in inventory:
-                    print(item)
+                    print(f"Name: {item['name']}, Quantity: {item['quantity']}, Price: ${item.get('price', 0)}")
+            elif user_input.lower() == "h":
+                print(gameHelp())
             elif user_input.lower() == "*commands":
-                print(commands_list)
+                print(commands_list())
             elif user_input.lower() == "quit":
                 print("Exiting the game.")
                 break
@@ -108,9 +124,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    #adding commit for test of clock
-    #testing github clocks again
 
 
 
