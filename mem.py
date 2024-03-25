@@ -6,6 +6,10 @@ import time
 import pyfiglet
 import keyboard
 import ascii
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 from PIL import Image
 from art import *
@@ -52,6 +56,9 @@ def start_game():
     time.sleep(4) 
     print(ascii.tree)
     time.sleep(5)
+
+    play_music('./Music/2021-08-17_-_8_Bit_Nostalgia_-_www.FesliyanStudios.com.mp3')
+
     print("Dry blood seems to be on your right arm and on the right side of your face")
     time.sleep(4)  
     print("You look around...")
@@ -92,6 +99,10 @@ def actions():
     print('read origin map')
     print('read current location map')
 
+def play_music(file_path):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
+
 
 def check_for_escape():
     return keyboard.is_pressed('esc')
@@ -99,8 +110,8 @@ def check_for_escape():
 def main():
     # each of these functions can be the "levels" of the game the player is 
     # currently on 
-    
-    #start_game()
+
+    start_game()
     while True:
 
             user_input = input("\nWhat would you like to do? Enter a command or h for help: ")
