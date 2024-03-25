@@ -25,6 +25,7 @@ def display_ascii(text):
     ascii_art = pyfiglet.figlet_format(text)
     print(ascii_art)
 
+#don't think I'm using this
 def convert_image_to_ascii(image_path):
     img = Image.open(image_path)
     ascii_art = text2art(str(img), font='block', chr_ignore=True)
@@ -79,7 +80,18 @@ def check_for_escape():
 
 def main():
     start_game()
+    while True:
+            user_input = input("\nWhat would you like to do? Enter a command: ")
 
+            if user_input.lower() == "*inventory":
+                print("\nInventory List:")
+                for item in inventory:
+                    print(item)
+            elif user_input.lower() == "quit":
+                print("Exiting the game.")
+                break
+            else:
+                print("Invalid command. Please try again.")
     #enter_lane()
     #encounter_enemy()  # You can expand this to include other encounters or challenges
     #reach_goal()
