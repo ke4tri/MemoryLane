@@ -1,6 +1,5 @@
-#pip install pyfiglet
-#pip install art
 #sudo chown -R testuser:testuser /var/www/test/public_html
+
 
 import time
 import pyfiglet
