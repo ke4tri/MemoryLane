@@ -15,18 +15,17 @@ from art import *
 
 ######### Lists and inventory ###########
 #list
-health = [15]
+health = 15
+Welness = 100
 progress = []
 
 location_status = None
-maps = {'name':'Map', 'quantity':1}
-food = {'name':'Apples', 'quantity':1, 'price':.10}
-
-#weapons needs to be list?
-weapons = {'name':'Knife','condition':'dull','quantity':1,'price':1.00 }
+map = ascii.maps
+food = ['food',{'name':'Apples', 'quantity':1, 'price':.10}]
+weapons = ['weapons',{'name':'Knife','condition':'dull','quantity':1,'price':1.00 }]
 
 #dictonary/object 
-inventory = [maps,food,weapons]
+inventory = [map,food,weapons]
 
 
 ########## Command Functions ###########
@@ -43,6 +42,7 @@ def convert_image_to_ascii(image_path):
 
 def gameHelp():
     print('You asked for help so here it is...')
+    print('Type "*commands" for a list of commands')
 
 def start_game():
     display_ascii('Memory Lane!')
@@ -50,35 +50,30 @@ def start_game():
     print(" ")
     time.sleep(2) 
     print("It begins...")
-    time.sleep(4)  
+    time.sleep(1)  
     print("You awaken and find yourself benieth an old oak tree.")
-    time.sleep(4) 
+    time.sleep(1) 
     print(ascii.tree)
-    time.sleep(5)
+    time.sleep(1)
 
-    play_music('./Music/2021-08-17_-_8_Bit_Nostalgia_-_www.FesliyanStudios.com.mp3')
+   # play_music('./Music/2021-08-17_-_8_Bit_Nostalgia_-_www.FesliyanStudios.com.mp3')
 
     print("Dry blood seems to be on your right arm and on the right side of your face")
-    time.sleep(4)  
+    time.sleep(1)  
     print("You look around...")
-    time.sleep(4)  
+    time.sleep(1)  
     print(".................")
-    time.sleep(4)  
+    time.sleep(1)  
     print("It seems to be mid morning")
-    time.sleep(4)  
+    time.sleep(1)  
     print(".................")
-    time.sleep(4)  
+    time.sleep(1)  
     print("But")
-    time.sleep(4)  
+    time.sleep(1)  
     print(".................")
-    time.sleep(4)  
+    time.sleep(1)  
     print("You're not sure who you are.")
-    time.sleep(4)  
-
-def enter_lane():
-    print("\nYou decide to walk down the lane.")
-    print("As you venture further, the surroundings become increasingly unfamiliar.")
-    time.sleep(2)
+    time.sleep(1)  
 
 def encounter_enemy():
     print("\nSuddenly, you encounter a fierce enemy blocking your path!")
@@ -94,23 +89,15 @@ def commands_list():
     print('*commands')
     print('*quit')
 
-def actions():
-    print('read origin map')
-    print('read current location map')
-
 def play_music(file_path):
     pygame.mixer.music.load(file_path)
     pygame.mixer.music.play()
-
-
-def check_for_escape():
-    return keyboard.is_pressed('esc')
 
 def main():
     # each of these functions can be the "levels" of the game the player is 
     # currently on 
 
-    start_game()
+   # start_game()
     while True:
 
             user_input = input("\nWhat would you like to do? Enter a command or h for help: ")
@@ -118,11 +105,36 @@ def main():
             if user_input.lower() == "*inventory":
                 print("\nInventory List:")
                 for item in inventory:
-                    print(f"Name: {item['name']}, Quantity: {item['quantity']}, Price: ${item.get('price', 0)}")
+                    if item[0] == 'maps':
+                        print(f"Map : {item[1]}")
+                    elif item[0] == 'food':
+                        f2 = item[1]
+                        print("Food")
+                        print("-------")
+                        print(f"Name : {f2['name']}")
+                        print(f"Quantity : {f2['quantity']}")
+                        print(f"Price : {f2['price']}")
+                    elif item[0] == 'weapons':
+                        w2 = item[1]
+                        print("Weapons")
+                        print("---------")
+                        print(f"Name : {w2['name']}")
+                        print(f"Condition : {w2['condition']}")
+                        print(f"Quantity : {w2['quantity']}")
+                        print(f"Price : {w2['price']}")
+                        #for items in item:
+                            
+
             elif user_input.lower() == "h":
                 print(gameHelp())
             elif user_input.lower() == "*commands":
                 print(commands_list())
+            elif user_input.lower() == "*c":
+                print(commands_list())
+            elif user_input.lower() == "*co":
+                print(commands_list())
+            elif user_input.lower() == "*com":
+                print(commands_list())    
             elif user_input.lower() == "quit":
                 print("Exiting the game.")
                 break
