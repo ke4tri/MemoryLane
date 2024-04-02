@@ -70,6 +70,9 @@ def make_choice(a,b,c):
             print("Invalid command. Please try again.")
 
 def start_game():
+    play_music(r'C:\Users\waynec.PATIENTFOCUS\Desktop\PythonStuff\MemoryLane\Music\2021-08-17_-_8_Bit_Nostalgia_-_www.FesliyanStudios.com.mp3')
+
+
     display_ascii('Memory Lane!')
     print("Created By : Wayne Collier and Monica Weiss-Sharp")
     print(" ")
@@ -84,37 +87,16 @@ def start_game():
     time.sleep(1)
     print(f"Health: {health()}")
     print("What would you like to do: ")
-    # print("1 - Check your pockets ")
-    # print("2 - Sleep a few hours ")
-    # print("3 - Start walking down the road")
+
     option_1 = "1 - Check your pockets"
     option_2 = "2 - Sleep a few hours"
     option_3 = "3 - Start walking down the road"
     make_choice(option_1, option_2, option_3)
-    # while True:
-    #     user_input = input("\nEnter a command or 'h' for help: ")
-    #     if user_input.lower() == "*inventory":
-    #         print(inv())
-    #     elif user_input.lower() == "h":
-    #         print(gameHelp())
-    #     elif user_input.lower() == "*commands":
-    #         print(commands_list())
-    #     elif user_input.lower() == "1":
-    #         print(inv())
-    #     elif user_input.lower() == "2":
-    #         sleep()
-    #     elif user_input.lower() == "3":
-    #         print(start_walk())
-    #     elif user_input.lower() == "health":
-    #         print(f"Health: {health()}")
-    #     elif user_input.lower() == "quit":
-    #         print("Exiting the game.")
-    #         break
-    #     else:
-    #         print("Invalid command. Please try again.")
+
 
 def commands_list():
     print('*inventory')
+    print('health')
     print('*commands')
     print('*quit')
 
@@ -138,6 +120,10 @@ def inv():
             print(f"Condition : {w2['condition']}")
             print(f"Quantity : {w2['quantity']}")
             print(f"Price : {w2['price']}")
+
+def play_music(file_path):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
 
 def main():
     start_game()
